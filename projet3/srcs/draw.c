@@ -6,7 +6,7 @@
 /*   By: ebatchas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/21 22:21:00 by ebatchas          #+#    #+#             */
-/*   Updated: 2018/12/23 19:11:41 by ebatchas         ###   ########.fr       */
+/*   Updated: 2019/02/02 12:58:56 by ebatchas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_draw(Uint32 *pixels, t_player *p, t_track *track)
 	time1 = time2;
 	time2 = SDL_GetTicks(); 
 	elapsed_time = (float)(time2 - time1) / 100.f;
-	while (track_section < 10 && offset <= p->fdistance)
+	while (track_section < 9 && offset <= p->fdistance)
 	{
 		offset += track[track_section].distance;
 		track_section ++;
@@ -109,11 +109,11 @@ void	ft_handle_input(t_input *in, t_player *p)
 	else
 		p->speed -= 1.0 * elapsed_time;
 	/*if (in->keys[SDL_SCANCODE_LEFT])
-	p->curvature -= 0.7f * elapsed_time * (1.0f - p->speed / 2.0f);;
+	p->curvature -= 0.4f * elapsed_time * (1.0f - p->speed / 2.0f);
 	if (in->keys[SDL_SCANCODE_RIGHT])
-	p->curvature += 0.7f * elapsed_time * (1.0f - p->speed / 2.0f);*/
+	p->curvature += 0.4f * elapsed_time * (1.0f - p->speed / 2.0f);
 	if (fabs(p->curvature - p->tcurvature) > 0.8f)
-	p->speed -= 5.0f * elapsed_time;
+	p->speed -= 5.0f * elapsed_time;*/
 	if (p->speed < 0.0f)
 		p->speed = 0.0f;
 	if(p->speed > 1.0f)
@@ -142,6 +142,4 @@ void	ft_track_init(t_track *trak)
 	trak[7].distance = 500.0f;
 	trak[8].curvature = 0.0f;
 	trak[8].distance = 200.0f;	
-
-
 }

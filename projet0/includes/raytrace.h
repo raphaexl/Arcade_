@@ -1,5 +1,5 @@
 # ifndef RAYTRACE_H
-# define RAYRTACE_H
+# define RAYTRACE_H
 
 typedef struct	s_ray
 {
